@@ -676,5 +676,6 @@ window.addEventListener('DOMContentLoaded',()=>{renderVideos();renderGallery();a
 <script id="lana-count-up-script">
 (()=>{const counters=[...document.querySelectorAll('[data-count]')];if(!counters.length)return;const animate=el=>{if(el.dataset.animated)return;el.dataset.animated='true';const target=Number(el.dataset.count);const suffix=el.dataset.suffix||'';const start=performance.now();const duration=1200;const frame=now=>{const progress=Math.min(1,(now-start)/duration);const eased=1-Math.pow(1-progress,3);el.textContent=Math.round(target*eased)+suffix;if(progress<1)requestAnimationFrame(frame)};requestAnimationFrame(frame)};if(!('IntersectionObserver' in window)){counters.forEach(animate);return}const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){animate(entry.target);observer.unobserve(entry.target)}}),{threshold:.35});counters.forEach(counter=>observer.observe(counter))})();
 </script>
+<!-- redeploy -->
 </body>
 </html>
